@@ -11,6 +11,15 @@ const app = express()
 ///////////////////////
 // Declare Routes and Routers 
 ///////////////////////
+app.get("/greeting", (req, res) => {
+    console.log(req.params)
+    res.send(`<h1>"Hey there, pardner!!"</h1>`)
+})
+
+app.get("/greeting/:name", (req, res) => {
+    console.log(req.params.name) // req.params = url params
+    res.send(`Good tidings unto thee, ${req.params.name}`)
+})
 
 ///////////////////////////
 // Server Listener
