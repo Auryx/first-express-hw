@@ -57,6 +57,31 @@ app.get("/magic/:question", (req, res) => {
 
 })
 
+// FIBONACCI
+// while x <= fibo num, 
+//// if x = fibo num
+////// res.send(`is fibonacci`)
+//// else
+////// res.send (`is not fibo`)
+app.get("/fibonacci/:num", (req, res) => {
+    let x = 1
+    let y = 0
+    while (x <= req.params.num) {
+        const next = y + x
+        console.log(y, x)
+        y = x
+        console.log(y, x)
+        x = next
+        console.log(y, x)
+        if (x == req.params.num) {
+            res.send(`<h3>Very good. It is Fibonacci.</h3>`)
+        }  
+
+    }
+    res.send(`<h3>Very bad. It is not Fibonacci.</h3>`)
+})
+
+
 ///////////////////////////
 // Server Listener
 ///////////////////////////
